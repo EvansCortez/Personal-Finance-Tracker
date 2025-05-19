@@ -1,87 +1,55 @@
 # Personal Finance Tracker
 
-A command-line tool to track your spending, analyze habits, and get savings tips using Python, SQLite, and Pandas.
+A Python-based personal finance tracker with CLI, GUI (Tkinter), and web (Flask) interfaces.  
+Features include transaction recording, spending analysis, visual reporting, and savings suggestions.
 
-## Features
+## Structure
 
-- Add, view, and analyze transactions (income/expense)
-- Detect recurring transactions (subscriptions, bills)
-- Set and check budgets per category
-- Export/import transactions as CSV
-- Visualize spending and net savings with charts
-- Get automated savings tips
+```
+finance-tracker/
+├── app/
+│   ├── __init__.py
+│   ├── core.py         # Business logic and data access
+│   ├── gui.py          # Tkinter interface
+│   ├── web.py          # Flask application
+│   ├── config.py       # Configuration settings
+│   └── templates/      # Flask templates
+├── data/               # Database files
+├── tests/              # Unit tests
+├── requirements.txt    # Dependencies
+└── README.md           # Documentation
+```
 
-## Setup
+## Quick Start
 
-1. **Clone the repository**
-2. **Install dependencies:**
+1. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
-3. **Run the tracker:**
+
+2. Run the CLI:
    ```
-   python data_manangement.py
+   python app/core.py
    ```
 
-## Example Usage
+3. Run the GUI:
+   ```
+   python app/gui.py
+   ```
 
-- Add a transaction:  
-  `1` → Enter date, amount, category, description, and type (debit/credit)
-- View spending report:  
-  `2`
-- Get savings tips:  
-  `3`
-- Export transactions:  
-  `4`
-- Import transactions:  
-  `5`
-- Detect recurring transactions:  
-  `6`
-- Show net savings per month:  
-  `7`
-- Exit:  
-  `8`
+4. Run the web app:
+   ```
+   python app/web.py
+   ```
 
-## Screenshots
+## Features
 
-![Spending Report Example](screenshots/spending_report.png)
+- SQLite-based transaction storage
+- Spending analysis and visualizations (Matplotlib)
+- Budgeting and savings suggestions
+- Tkinter GUI and Flask web interface
 
-## Data Backup
+## License
 
-Regularly back up your `finance.db` and exported CSV files.
+MIT License
 
-## Security
-
-If you add user authentication, **never store passwords in plain text**—use hashing.
-
-## Future Enhancements
-
-- Multi-user support
-- GUI or web interface
-- Email reports
-- Currency selection
-
----
-
-## 2. Sample `requirements.txt`
-
-```
-pandas
-matplotlib
-numpy
-```
-
----
-
-## 3. Input Validation Example
-
-Add checks for negative amounts and valid types:
-
-````python
-# In your main loop, before add_transaction:
-if amount < 0:
-    print("Amount must be positive.")
-    continue
-if type_.lower() not in ['debit', 'credit']:
-    print("Type must be 'debit' or 'credit'.")
-    continue
