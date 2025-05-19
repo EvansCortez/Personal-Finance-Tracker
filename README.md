@@ -1,9 +1,40 @@
 # Personal Finance Tracker
 
-A Python-based personal finance tracker with CLI, GUI (Tkinter), and web (Flask) interfaces.  
-Features include transaction recording, spending analysis, visual reporting, and savings suggestions.
+![Finance Dashboard Screenshot](./screenshots/dashboard.png)
 
-## Structure
+A multi-interface Python application for managing personal finances with CLI, GUI (Tkinter), and web (Flask) interfaces. Features transaction recording, spending analysis, visual reporting, and personalized savings suggestions.
+
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.com/EvansCortez/Personal-Finance-Tracker.svg?branch=main)](https://travis-ci.com/EvansCortez/Personal-Finance-Tracker)
+[![Coverage Status](https://coveralls.io/repos/github/EvansCortez/Personal-Finance-Tracker/badge.svg?branch=main)](https://coveralls.io/github/EvansCortez/Personal-Finance-Tracker?branch=main)
+
+## Features
+
+- **Multi-Interface Access**
+  - Command Line Interface (CLI)
+  - Graphical User Interface (Tkinter)
+  - Web Application (Flask)
+
+- **Core Functionality**
+  - Transaction recording with categories
+  - SQLite database storage
+  - Initial balance configuration
+  - Net savings calculation
+
+- **Financial Insights**
+  - Spending by category visualization
+  - Monthly spending trends
+  - Personalized savings suggestions
+  - Budget vs. actual comparisons
+
+- **Advanced Features**
+  - Data export (CSV, Excel)
+  - Recurring transaction detection
+  - Multi-user support (web version)
+  - REST API for mobile integration
+
+## Project Structure
 
 ```
 finance-tracker/
