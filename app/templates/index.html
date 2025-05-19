@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Finance Tracker - Home{% endblock %}
+{% block content %}
+<h2>Set Initial Balance</h2>
+<form method="post" action="/set_balance">
+  Initial Balance: <input name="initial_balance" type="number" step="0.01" value="{{ initial_balance }}">
+  <input type="submit" value="Set">
+</form>
+<h2>Add Transaction</h2>
+<form method=post>
+  Date: <input name="date" type="text" placeholder="YYYY-MM-DD"><br>
+  Category: <input name="category" type="text"><br>
+  Amount: <input name="amount" type="number" step="0.01"><br>
+  Description: <input name="description" type="text"><br>
+  <input type=submit value="Add">
+</form>
+<h2>Initial Balance: ${{ "{:,.2f}".format(initial_balance) }}</h2>
+<h2>Net Savings: ${{ "{:,.2f}".format(net) }}</h2>
+<h2>Transactions</h2>
+<table>
+  <tr><th>Date</th><th>Category</th><th>Amount</th><th>Description</th><th>Actions</th></tr>
+  {% for t in transactions %}
+    <tr>
+      <td>{{ t[0] }}</td>
+      <td>{{ t[1] }}</td>
+      <td>{{ t[2] }}</td>
+      <td>{{ t[3] }}</td>
+      <td>
+        <form method="post" action="/delete" style="display:inline;">
+          <input type="hidden" name="index" value="{{ loop.index0 }}">
+          <button type="submit" class="action-btn">Delete</button>
+        </form>
+        <form method="get" action="/edit" style="display:inline;">
+          <input type="hidden" name="index" value="{{ loop.index0 }}">
+          <button type="submit" class="action-btn">Edit</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+<h2>Spending Report</h2>
+<img src="/report.png">
+{% endblock %}
